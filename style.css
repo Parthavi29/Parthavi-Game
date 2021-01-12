@@ -1,0 +1,59 @@
+body {
+    background-image: url("background.jpg");
+}
+
+.heading {
+    width: 100%;
+    text-align: left;
+}
+
+.heading h2 {
+    display: inline;
+}
+
+.heading button {
+    float: right;
+    border: 2px solid white;
+}
+
+.big_image {
+    width: 100%;
+}
+
+#start {
+    font-size: 25px;
+}
+
+#credit {
+    background-color: grey;
+    margin: 0px;
+    line-height: 2;
+    color: white;
+    font-size: 22px;
+}
+
+#credit a {
+    color: chartreuse;
+}
+
+.modal-dialog {
+    width: 90%;
+}
+
+.modal_img {
+    width: 45%;
+    display: inline;
+}
+
+.modal-header h4 {
+    color: rgb(0, 238, 255);
+    font-size: 22px;
+    letter-spacing: 5px;
+}
+
+video {
+    background: url("game_console.png");
+    background-size: cover;
+    background-position: center;
+    padding: 25px;
+}
