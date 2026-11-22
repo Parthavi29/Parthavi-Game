@@ -5,14 +5,15 @@ function preload() {
     mariogameover = loadSound("gameover.wav");
     mariokick = loadSound("kick.wav");
     mariodie = loadSound("mariodie.wav");
-    setSprites();
-    MarioAnimation();
 }
 
 function setup() {
     canvas = createCanvas(1240, 336);
     canvas.parent('canvas');
 
+    frameRate(60);
+    setSprites();
+    MarioAnimation();
     instializeInSetup(mario);
 
     video = createCapture(VIDEO);
@@ -29,13 +30,26 @@ function modelLoaded() {
 
 function gotPoses(results) {
     if (results.length > 0) {
-        console.log(results);
         noseX = results[0].pose.nose.x;
         noseY = results[0].pose.nose.y;
-
+        var noseRaised = noseY > 0 && noseY < 200;
+        if (noseRaised && !noseWasRaised) {
+            noseJumpPressed = true;
+        }
+        noseWasRaised = noseRaised;
+    } else {
+        noseX = 0;
+        noseY = 0;
+        noseWasRaised = false;
     }
 }
 
 function draw() {
-    game()
+    game();
+}
+
+function mousePressed() {
+    if (gameConfig.status === 'play') {
+        mouseJumpPressed = true;
+    }
 }
